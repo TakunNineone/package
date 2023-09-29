@@ -2,24 +2,23 @@ import warnings,os,re
 warnings.filterwarnings("ignore")
 import pickle
 import pandas as pd
-os.chdir(f'{os.getcwd()}//ulya')
+# os.chdir(f'{os.getcwd()}//ulya')
 
 import zipfile
 list_comment={}
 #name='1021603631224_42pm30_20211031_1_REGNUMBER_1.zip'
-name='XBRL_1025402459334_ep_nso_purcb_m_10rd_reestr_0420417_20211031.xbrl.zip'
+name='20230630.zip'
+i=0
 with zipfile.ZipFile(name) as z:
     for filename in z.namelist():
-        if not os.path.isdir(filename):
-            with z.open(filename) as f:
-                for line in f:
-                    txt,filename=line,filename
-                    i=100
-                    while i<100:
-                        if re.findall ('<!--(.+?)-->', txt.decode("utf-8")):
-                            print(line)
-                    else:
-                        break
+        print(filename)
+        with z.open(filename) as f:
+            for line in f:
+                print(line)
+                txt,filename=line,filename
+                i=i+1
+                if i==200:
+                    break
                 #     m = re.findall ('<!--(.+?)-->', txt)
                 #     list_comment[filename]=m
                 #     with open('list2.pkl','wb') as f:

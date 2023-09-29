@@ -9,7 +9,7 @@ def neighborhood(iterable):
         prev_item = current_item
         current_item = next_item
 
-name='all_log.zip'
+name='11.zip'
 with zipfile.ZipFile(name) as z:
     for filename in z.namelist():
         if not os.path.isdir(filename):
