@@ -34,6 +34,8 @@ with zipfile.ZipFile(name) as z:
                             k_true = 1
                             doprint = 'true'
                         time=xx.decode('utf-8').split(' ')[0]+' '+xx.decode('utf-8').split(' ')[1]
+                        if  '2024-11-26 14:00' in time:
+                            None
                         i=3
 assertions_group=[xx[0] for xx in temp_list]
 assertions_group=list(set(assertions_group))
@@ -69,7 +71,7 @@ for xx in list_ff.keys():
 
 final_list=sorted(final_list, key=operator.itemgetter('sort'))
 df = pd.DataFrame.from_dict(final_list)
-df.to_excel('log_all.xlsx')
+df.to_excel('bki_disabled_crosscheck.xlsx')
 # with open('log_all.txt','a') as f:
 #     for xx in final_list:
 #         f.write(f"{xx.get('assertion')};{xx.get('delta')};{xx.get('min')}';'{xx.get('max')}\n")

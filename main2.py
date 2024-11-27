@@ -6,8 +6,9 @@ import pandas as pd
 
 import zipfile
 list_comment={}
+os.chdir('C:\\XBRL\\xw7 server 2\\data\\2')
 #name='1021603631224_42pm30_20211031_1_REGNUMBER_1.zip'
-name='20230630.zip'
+name='2.zip'
 i=0
 with zipfile.ZipFile(name) as z:
     for filename in z.namelist():
@@ -17,12 +18,12 @@ with zipfile.ZipFile(name) as z:
                 print(line)
                 txt,filename=line,filename
                 i=i+1
-                if i==200:
-                    break
-                #     m = re.findall ('<!--(.+?)-->', txt)
-                #     list_comment[filename]=m
-                #     with open('list2.pkl','wb') as f:
-                #         pickle.dump(list_comment, f)
+                # if i==1000:
+                #     break
+                    m = re.findall ('<!--(.+?)-->', txt)
+                    list_comment[filename]=m
+                    with open('list2.pkl','wb') as f:
+                        pickle.dump(list_comment, f)
 #
 # # list_comment={}
 # # list_file=os.listdir()
