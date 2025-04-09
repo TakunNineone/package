@@ -6,6 +6,8 @@ warnings.filterwarnings("ignore")
 from xml.etree import ElementTree as ET
 
 
+
+
 def readjson(path):
     with open(path, encoding='utf-8') as f:
         json_list = json.load(f)

@@ -61,8 +61,8 @@ sum=datetime.timedelta()
 for xx in list_ff.keys():
     delta=max(list_ff[xx])-min(list_ff[xx])
     sum=sum+delta
-    mindate = min(list_ff[xx]).strftime('%Y-%m-%d %H:%M:%S.%f')
-    maxdate = max(list_ff[xx]).strftime('%Y-%m-%d %H:%M:%S.%f')
+    mindate = min(list_ff[xx]).strftime('%Y.%m.%d %H:%M:%S.%f')
+    maxdate = max(list_ff[xx]).strftime('%Y.%m.%d %H:%M:%S.%f')
     mindate_s = (min(list_ff[xx])-datetime.datetime(1970,1,1)).total_seconds()
     maxdate_s = (max(list_ff[xx])-datetime.datetime(1970,1,1)).total_seconds()
     sort=int(min(list_ff[xx]).strftime('%Y%m%d%H%M%S%f'))
@@ -71,7 +71,7 @@ for xx in list_ff.keys():
 
 final_list=sorted(final_list, key=operator.itemgetter('sort'))
 df = pd.DataFrame.from_dict(final_list)
-df.to_excel('bki_disabled_crosscheck.xlsx')
+df.to_excel('XBRL_1027739820921_ep_SSDNEMED_10rd_sr_q_20240331_LOG_.xlsx')
 # with open('log_all.txt','a') as f:
 #     for xx in final_list:
 #         f.write(f"{xx.get('assertion')};{xx.get('delta')};{xx.get('min')}';'{xx.get('max')}\n")
